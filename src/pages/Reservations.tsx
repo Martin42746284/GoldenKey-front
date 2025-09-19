@@ -417,10 +417,10 @@ const Reservations = () => {
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="Madagascar">Madagascar</SelectItem>
-                            <SelectItem value="France">France</SelectItem>
-                            <SelectItem value="Maurice">Maurice</SelectItem>
-                            <SelectItem value="Réunion">Réunion</SelectItem>
+                            <SelectItem value="Malagasy">Madagascar</SelectItem>
+                            <SelectItem value="Français">France</SelectItem>
+                            <SelectItem value="Mauricien">Maurice</SelectItem>
+                            <SelectItem value="Réunionais">Réunion</SelectItem>
                             <SelectItem value="Autre">Autre</SelectItem>
                           </SelectContent>
                         </Select>
@@ -509,7 +509,6 @@ const Reservations = () => {
                             <SelectItem value="Standard">Standard</SelectItem>
                             <SelectItem value="Deluxe">Deluxe</SelectItem>
                             <SelectItem value="Suite">Suite</SelectItem>
-                            <SelectItem value="Family">Family</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
