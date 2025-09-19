@@ -111,7 +111,7 @@ export default function DailyInvoice() {
               {currency !== 'MGA' && (
                 <div className="space-y-2">
                   <Label>Taux {currency}/MGA</Label>
-                  <Input type="number" value={currency==='EUR'?rates.EUR:rates.USD} onChange={(e)=> setRates(r => currency==='EUR'? { ...r, EUR: Number(e.target.value)||1 }: { ...r, USD: Number(e.target.value)||1 })} />
+                  <Input min={0} type="number" value={currency==='EUR'?rates.EUR:rates.USD} onChange={(e)=> setRates(r => currency==='EUR'? { ...r, EUR: Number(e.target.value)||1 }: { ...r, USD: Number(e.target.value)||1 })} />
                 </div>
               )}
               <div className="flex items-end">

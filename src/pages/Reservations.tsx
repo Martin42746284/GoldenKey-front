@@ -537,6 +537,7 @@ const Reservations = () => {
                         <Input
                           id="rate"
                           type="number"
+                          min={0}
                           value={newReservation.rate}
                           onChange={(e) => setNewReservation({...newReservation, rate: parseFloat(e.target.value) || 0})}
                         />

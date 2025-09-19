@@ -289,13 +289,13 @@ const Spa = () => {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="duration">Durée (min)</Label>
-                    <Input id="duration" type="number" value={newApp.durationMin} onChange={(e)=>setNewApp({ ...newApp, durationMin: Number(e.target.value)||0 })} />
+                    <Input min={0} id="duration" type="number" value={newApp.durationMin} onChange={(e)=>setNewApp({ ...newApp, durationMin: Number(e.target.value)||0 })} />
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="price">Prix (MGA)</Label>
-                    <Input id="price" type="number" value={newApp.price} onChange={(e)=>setNewApp({ ...newApp, price: Number(e.target.value)||0 })} />
+                    <Input min={0} id="price" type="number" value={newApp.price} onChange={(e)=>setNewApp({ ...newApp, price: Number(e.target.value)||0 })} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="room">Salle</Label>

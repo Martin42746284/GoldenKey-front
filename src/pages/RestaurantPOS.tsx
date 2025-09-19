@@ -239,7 +239,7 @@ export default function RestaurantPOS() {
               {/* Split payments */}
               {selectedOrder.status === 'open' && (
                 <div className="grid grid-cols-3 gap-2">
-                  <Input type="number" placeholder="Montant" value={payAmount || ''} onChange={(e)=> setPayAmount(Number(e.target.value))} />
+                  <Input min={0} type="number" placeholder="Montant" value={payAmount || ''} onChange={(e)=> setPayAmount(Number(e.target.value))} />
                   <Select value={payMethod} onValueChange={(v)=> setPayMethod(v as any)}>
                     <SelectTrigger><SelectValue placeholder="Méthode"/></SelectTrigger>
                     <SelectContent>

@@ -67,13 +67,13 @@ export default function Cash() {
               <CardContent className="space-y-3">
                 {!open && (
                   <div className="flex items-center gap-2">
-                    <Input type="number" value={opening || ''} onChange={(e)=>setOpening(Number(e.target.value))} placeholder="Fond de caisse (Ar)" />
+                    <Input min={0} type="number" value={opening || ''} onChange={(e)=>setOpening(Number(e.target.value))} placeholder="Fond de caisse (Ar)" />
                     <Button onClick={()=>openMut.mutate()}>Ouvrir</Button>
                   </div>
                 )}
                 {open && (
                   <div className="flex items-center gap-2">
-                    <Input type="number" value={closing || ''} onChange={(e)=>setClosing(Number(e.target.value))} placeholder="Clôture (Ar)" />
+                    <Input min={0} type="number" value={closing || ''} onChange={(e)=>setClosing(Number(e.target.value))} placeholder="Clôture (Ar)" />
                     <Button onClick={()=>closeMut.mutate()}>Clôturer</Button>
                   </div>
                 )}

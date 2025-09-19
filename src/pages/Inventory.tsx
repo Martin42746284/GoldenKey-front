@@ -329,13 +329,13 @@ const addItemMut = useMutation({
 
                       <div className="grid grid-cols-3 gap-4">
                         <FormField control={stockForm.control} name="qty_on_hand" render={({ field }) => (
-                          <FormItem><FormLabel>Qté initiale</FormLabel><FormControl><Input type="number" {...field} onChange={(e)=>field.onChange(Number(e.target.value))}/></FormControl><FormMessage/></FormItem>
+                          <FormItem><FormLabel>Qté initiale</FormLabel><FormControl><Input min={0} type="number" {...field} onChange={(e)=>field.onChange(Number(e.target.value))}/></FormControl><FormMessage/></FormItem>
                         )} />
                         <FormField control={stockForm.control} name="min_level" render={({ field }) => (
-                          <FormItem><FormLabel>Seuil min</FormLabel><FormControl><Input type="number" {...field} onChange={(e)=>field.onChange(Number(e.target.value))}/></FormControl><FormMessage/></FormItem>
+                          <FormItem><FormLabel>Seuil min</FormLabel><FormControl><Input min={0} type="number" {...field} onChange={(e)=>field.onChange(Number(e.target.value))}/></FormControl><FormMessage/></FormItem>
                         )} />
                         <FormField control={stockForm.control} name="max_level" render={({ field }) => (
-                          <FormItem><FormLabel>Seuil max</FormLabel><FormControl><Input type="number" {...field} onChange={(e)=>field.onChange(Number(e.target.value))}/></FormControl><FormMessage/></FormItem>
+                          <FormItem><FormLabel>Seuil max</FormLabel><FormControl><Input min={0} type="number" {...field} onChange={(e)=>field.onChange(Number(e.target.value))}/></FormControl><FormMessage/></FormItem>
                         )} />
                       </div>
                       <div className="flex justify-end gap-3"><Button type="button" variant="outline" onClick={()=>setShowStockDialog(false)}>Annuler</Button><Button type="submit">Ajouter</Button></div>
@@ -350,10 +350,10 @@ const addItemMut = useMutation({
                   <Form {...stockForm}>
                     <form onSubmit={stockForm.handleSubmit(onSaveEdit)} className="space-y-4">
                       <FormField control={stockForm.control} name="qty_on_hand" render={({ field }) => (
-                        <FormItem><FormLabel>Qté</FormLabel><FormControl><Input type="number" {...field} onChange={(e)=>field.onChange(Number(e.target.value))}/></FormControl><FormMessage/></FormItem>
+                        <FormItem><FormLabel>Qté</FormLabel><FormControl><Input min={0} type="number" {...field} onChange={(e)=>field.onChange(Number(e.target.value))}/></FormControl><FormMessage/></FormItem>
                       )} />
                       <FormField control={stockForm.control} name="min_level" render={({ field }) => (
-                        <FormItem><FormLabel>Seuil min</FormLabel><FormControl><Input type="number" {...field} onChange={(e)=>field.onChange(Number(e.target.value))}/></FormControl><FormMessage/></FormItem>
+                        <FormItem><FormLabel>Seuil min</FormLabel><FormControl><Input min={0} type="number" {...field} onChange={(e)=>field.onChange(Number(e.target.value))}/></FormControl><FormMessage/></FormItem>
                       )} />
                       <div className="flex justify-end gap-3"><Button type="button" variant="outline" onClick={()=>setEditStockDialog(false)}>Annuler</Button><Button type="submit">Enregistrer</Button></div>
                     </form>
@@ -399,7 +399,7 @@ const addItemMut = useMutation({
                 </SelectContent>
               </Select>
 
-              <Input type="number" value={qty || ''} placeholder="Quantité" onChange={(e)=>setQty(Number(e.target.value))} />
+              <Input min={0} type="number" value={qty || ''} placeholder="Quantité" onChange={(e)=>setQty(Number(e.target.value))} />
 
               <Button onClick={doMove} disabled={!selectedItem || qty === 0}>Valider</Button>
             </CardContent>

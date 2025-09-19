@@ -92,11 +92,11 @@ export default function RestaurantMenu() {
                   <div className="grid grid-cols-2 gap-3">
                     <div className="space-y-2">
                       <Label>Prix (Ar)</Label>
-                      <Input type="number" value={price} onChange={(e)=>setPrice(Number(e.target.value))} min={0} />
+                      <Input type="number" minLength={0} value={price} onChange={(e)=>setPrice(Number(e.target.value))} min={0} />
                     </div>
                     <div className="space-y-2">
                       <Label>TVA (%)</Label>
-                      <Input type="number" value={vat} onChange={(e)=>setVat(Number(e.target.value))} min={0} max={100} />
+                      <Input type="number" minLength={0} value={vat} onChange={(e)=>setVat(Number(e.target.value))} min={0} max={100} />
                     </div>
                   </div>
                   <Button type="submit" className="w-full"><PlusCircle className="mr-2 h-4 w-4"/>Ajouter</Button>

@@ -280,7 +280,7 @@ const Index = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="rate">Tarif (MGA)</Label>
-                    <Input id="rate" type="number" value={newRes.rate} onChange={(e)=>setNewRes({...newRes, rate: Number(e.target.value) || 0})} />
+                    <Input min={0} id="rate" type="number" value={newRes.rate} onChange={(e)=>setNewRes({...newRes, rate: Number(e.target.value) || 0})} />
                   </div>
                   <div className="flex items-end space-x-2">
                     <Checkbox id="checkinNow" checked={newRes.checkinNow} onCheckedChange={(v)=>setNewRes({...newRes, checkinNow: Boolean(v)})} />

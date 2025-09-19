@@ -95,8 +95,8 @@ export default function RoomsManage() {
               <CardHeader><CardTitle>Ajout par plage</CardTitle></CardHeader>
               <CardContent className="space-y-3">
                 <div className="grid grid-cols-2 gap-2">
-                  <Input type="number" placeholder="Début (ex: 101)" value={rangeStart || ''} onChange={(e)=>setRangeStart(Number(e.target.value))} />
-                  <Input type="number" placeholder="Fin (ex: 120)" value={rangeEnd || ''} onChange={(e)=>setRangeEnd(Number(e.target.value))} />
+                  <Input type="number" placeholder="Début (ex: 101)" min={0} value={rangeStart || ''} onChange={(e)=>setRangeStart(Number(e.target.value))} />
+                  <Input type="number" placeholder="Fin (ex: 120)" min={0} value={rangeEnd || ''} onChange={(e)=>setRangeEnd(Number(e.target.value))} />
                 </div>
                 <Select value={rangeType} onValueChange={(v)=>setRangeType(v as any)}>
                   <SelectTrigger><SelectValue placeholder="Type"/></SelectTrigger>

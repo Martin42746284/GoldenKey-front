@@ -180,7 +180,7 @@ export default function BarPOS() {
                           </div>
                           <div className="text-xs text-muted-foreground mt-1">Solde actuel: {new Intl.NumberFormat('fr-FR').format(tab.balance || 0)} Ar</div>
                           <div className="flex items-center gap-2 mt-2">
-                            <Input type="number" placeholder="Montant" value={payAmount || ''} onChange={(e)=> setPayAmount(Number(e.target.value))} />
+                            <Input type="number" placeholder="Montant" min={0} value={payAmount || ''} onChange={(e)=> setPayAmount(Number(e.target.value))} />
                             <Button size="sm" disabled={!payAmount || payAmount<=0} onClick={async ()=> { await payMut.mutateAsync({ id: tab.id, amount: payAmount }); setPayAmount(0); qc.invalidateQueries({ queryKey: ["orders","pub"] }); }}>Encaisser</Button>
                             {tab.status !== 'paid' && <Button size="sm" variant="outline" onClick={()=> unpaidMut.mutate(tab.id)}>Marquer impayé</Button>}
                           </div>
@@ -231,7 +231,7 @@ export default function BarPOS() {
                 {/* Split payments */}
                 {selectedOrder.status === 'open' && (
                   <div className="grid grid-cols-3 gap-2">
-                    <Input type="number" placeholder="Montant" value={payAmount || ''} onChange={(e)=> setPayAmount(Number(e.target.value))} />
+                    <Input type="number" min={0} placeholder="Montant" value={payAmount || ''} onChange={(e)=> setPayAmount(Number(e.target.value))} />
                     <Select value={payMethod} onValueChange={(v)=> setPayMethod(v as any)}>
                       <SelectTrigger><SelectValue placeholder="Méthode"/></SelectTrigger>
                       <SelectContent>
@@ -294,7 +294,7 @@ export default function BarPOS() {
             {editingLine && (
               <div className="space-y-3">
                 <div className="text-sm">{editingLine.line?.itemName}</div>
-                <Input type="number" value={editQty} onChange={(e)=>setEditQty(Number(e.target.value))} />
+                <Input type="number" min={0} value={editQty} onChange={(e)=>setEditQty(Number(e.target.value))} />
                 <div className="flex justify-end gap-2">
                   <Button variant="outline" onClick={()=> setEditingLine(null)}>Annuler</Button>
                   <Button onClick={saveEditLine}>Enregistrer</Button>

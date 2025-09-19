@@ -133,7 +133,7 @@ export default function PubMenu() {
                     <div className="font-semibold">Modifier</div>
                     <div className="grid grid-cols-2 gap-3">
                       <Input value={editName} onChange={(e)=>setEditName(e.target.value)} />
-                      <Input type="number" value={editPrice} onChange={(e)=>setEditPrice(Number(e.target.value))} />
+                      <Input min={0} type="number" value={editPrice} onChange={(e)=>setEditPrice(Number(e.target.value))} />
                     </div>
                     <div className="flex gap-2 justify-end">
                       <Button variant="outline" onClick={()=>setEditingId(null)}>Annuler</Button>
